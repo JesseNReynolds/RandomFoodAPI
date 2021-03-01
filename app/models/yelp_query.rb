@@ -1,19 +1,21 @@
+require_relative '../../APIKey.rb'
 class YelpQuery
 
     attr_accessor :limit, :category, :longitude, :latitude,
     :radius, :results, :open_boolean
 
-    def initialize(latitude, longitude, radius, open_boolean)
+    def initialize(latitude:, longitude:, radius:, open_boolean:)
         @limit = 50 
         # max limit the api supports as of 10/19/20 is 50
         @category = "Restaurants"
         @longitude = longitude
         @latitude = latitude
-        @radius = radius
+        @radius = (radius * 1609.34).to_i
+        @open_boolean = open_boolean
         @results = []
     end
 
-    def query_to_hash
+    def compile_results
         results = 50
         offset = 0
         while offset < results && offset <= 999 do
@@ -23,9 +25,9 @@ class YelpQuery
             data = JSON.parse(raw_query_data)
             results = data["total"]
             offset += 50
-            @results.push(data)
+            @results = @results + data["businesses"]
         end
-
+        
     end
 
 end
