@@ -1,5 +1,5 @@
 - [] Send parameters for yelp fetch to back end
     - [x] Client location
-    - [] Radius
-    - [] Review and price req
-    - [] open now bool
+    - [x] Radius
+    - [x] Review and price req
+    - [x] open now bool
