@@ -32,7 +32,6 @@ class YelpQuery
             results = data["total"]
             offset += 50
             @results = @results + data["businesses"]
-            byebug
         end
         
     end
