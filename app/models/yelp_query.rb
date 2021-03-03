@@ -9,9 +9,15 @@ class YelpQuery
         # max limit the api supports as of 10/19/20 is 50
         @category = "Restaurants"
         @longitude = longitude
-        @latitude = latitude
-        @radius = (radius * 1609.34).to_i
+        @latitude = latitude  
         @open_boolean = open_boolean
+
+        if (radius.to_i * 1609.34).to_i < 40000
+            @radius = (radius.to_i * 1609.34).to_i
+        else 
+            @radius = 40000
+        end
+
         @results = []
     end
 
@@ -26,6 +32,7 @@ class YelpQuery
             results = data["total"]
             offset += 50
             @results = @results + data["businesses"]
+            byebug
         end
         
     end
