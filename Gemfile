@@ -5,6 +5,7 @@ ruby '2.6.1'
 
 gem 'http'
 gem 'figaro'
+# gem 'jwt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
