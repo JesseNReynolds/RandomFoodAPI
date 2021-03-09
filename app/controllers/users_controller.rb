@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.find_or_create_by(user_params[:fb_id])
+    @user = User.find_or_create_by(fb_id: user_params[:fb_id])
 
     if @user
-      render json: @user, status: :created, location: @user
+      render json: {status: 202}
     else
       render json: @user.errors, status: :unprocessable_entity
     end
