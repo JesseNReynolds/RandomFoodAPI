@@ -27,6 +27,18 @@ class PastResultsController < ApplicationController
 
   end
 
+  def update
+
+    @past_result = PastResult.find(params[:id])
+
+    @past_results = User.find(@past_result.user_id).PastResults
+
+    if @past_result.update(past_result_params)
+      render json: @past_results
+    end
+
+  end
+
   private
     # Only allow a list of trusted parameters through.
     def past_result_params

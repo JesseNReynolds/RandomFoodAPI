@@ -1,4 +1,4 @@
-- [] Send parameters for yelp fetch to back end
+- [x] Send parameters for yelp fetch to back end
     - [x] Client location
     - [x] Radius
     - [x] Review and price req
