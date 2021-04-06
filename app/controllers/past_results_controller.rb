@@ -39,6 +39,18 @@ class PastResultsController < ApplicationController
 
   end
 
+  def show
+
+    @past_result = PastResult.find(params[:id])
+
+    business_info = @past_result.get_business_info
+
+    if business_info
+      render json: business_info
+    end
+
+  end
+
   private
     # Only allow a list of trusted parameters through.
     def past_result_params
