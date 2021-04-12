@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :past_results, only: [:create, :update, :show]
+  resources :past_results, only: [:create, :update, :show, :destroy]
   
   resources :users, only: [:create] do
     resources :past_results, only: [:index]
